@@ -8,6 +8,7 @@ namespace Vidly
     {
         public void Configuration(IAppBuilder app)
         {
+            //Startup Method
             ConfigureAuth(app);
         }
     }
