@@ -27,6 +27,7 @@ textarea {
     color: red;
 }
 
-.input-validation-error{
-    border: 2px solid red;
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #FF0000;
 }

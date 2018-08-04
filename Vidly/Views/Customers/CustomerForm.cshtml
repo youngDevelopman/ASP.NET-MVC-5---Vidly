@@ -10,10 +10,11 @@
 
 @using (Html.BeginForm("Save", "Customers"))
 {
+  @Html.ValidationSummary(true, "Please, fix the following errors")
   <div class="form-group">
     @Html.LabelFor(m => m.Customer.Name)
     @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.Customer.Name)
+    @Html.ValidationMessageFor(m => m.Customer.Name,"",new { @style = "color:red" })
   </div>
   <div class="form-group">
     @Html.LabelFor(m => m.Customer.Birthdate)
@@ -23,7 +24,7 @@
   <div class="form-group">
     @Html.LabelFor(m => m.Customer.MembershipTypeId)
     @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select membership type", new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.Customer.MembershipTypeId)
+    @Html.ValidationMessageFor(m => m.Customer.MembershipTypeId,"", new { @style = "color:red" })
   </div>
   <div class="checkbox">
     <label>
@@ -31,8 +32,15 @@
     </label>
   </div>
   @Html.HiddenFor(m => m.Customer.Id)
+  @Html.AntiForgeryToken()
   <button type="submit" class="btn btn-primary ">Save</button>
 }
+
+@section scripts
+{
+  @Scripts.Render("~/bundles/jqueryval")
+}
+
 
 
 
