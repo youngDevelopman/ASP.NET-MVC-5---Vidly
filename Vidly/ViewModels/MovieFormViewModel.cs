@@ -39,6 +39,10 @@ namespace Vidly.ViewModels
             }
         }
 
+        public MovieFormViewModel()
+        {
+            Id = 0;
+        }
         public MovieFormViewModel(Movie movie)
         {
             Id = movie.Id;
